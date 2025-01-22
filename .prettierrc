@@ -3,7 +3,7 @@
   "quoteProps": "as-needed",
   "semi": false,
   "singleAttributePerLine": true,
-  "singleQuote": true,
+  "singleQuote": false,
   "tabWidth": 2,
   "trailingComma": "all",
   "useTabs": false
