@@ -1,5 +1,6 @@
+# Zen
 
-# vite-vue3-browser-extension-v3
+## A Chrome extension for mindful individuals to block distractions and stay focused on their tasks.
 
 [![build](https://github.com/mubaidr/vite-vue3-browser-extension-v3/actions/workflows/build.yml/badge.svg)](https://github.com/mubaidr/vite-vue3-browser-extension-v3/actions/workflows/build.yml)
 

@@ -8,7 +8,7 @@
     "vue-router": "^4.5.0",
     "webextension-polyfill": "^0.12.0"
   },
-  "description": "A Vue 3 + Vite project for building Chrome extensions",
+  "description": "A Chrome extension for mindful individuals to block distractions and stay focused on their tasks.",
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.28",
     "@eslint/compat": "^1.2.5",
