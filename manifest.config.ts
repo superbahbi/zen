@@ -11,13 +11,15 @@ const [major, minor, patch, label = "0"] = version
   .split(/[.-]/)
 
 export default {
-  author: "Bobby lee <superbahbi@gmail.com>",
+  author: {
+    email: "superbahbi@gmail.com",
+  },
   name: env.mode === "staging" ? `[INTERNAL] ${name}` : displayName || name,
   description,
   // up to four numbers separated by dots
   version: `${major}.${minor}.${patch}.${label}`,
   // semver is OK in "version_name"
-  // version_name: version,
+  
   manifest_version: 3,
   // key: '',
   action: {
@@ -49,4 +51,4 @@ export default {
     32: "src/assets/logo.png",
     128: "src/assets/logo.png",
   },
-} as unknown as ManifestV3Export
+} as ManifestV3Export
