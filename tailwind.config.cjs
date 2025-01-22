@@ -12,6 +12,6 @@ module.exports = {
   ],
   daisyui: {
     themes: ["lofi", "business"],
-    logs: true,
+    logs: false,
   },
 }
