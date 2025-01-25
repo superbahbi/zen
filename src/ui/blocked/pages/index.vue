@@ -5,14 +5,13 @@ const displayName = __DISPLAY_NAME__
 
 <template>
   <div
-    class="w-full h-full flex flex-col justify-center items-center text-center md:my-12"
+    class="w-full h-full flex flex-col justify-center items-center text-center"
   >
     <h1>🚫 Blocked! 🚫</h1>
     <p>
-      {{ displayName }}! 🚫
+      The extension has been successfully blocked for this domain.
       <br />
-      The extension has been successfully blocked for this domain. You can now
-      close this tab and continue browsing safely.
+      You can now close this tab and continue browsing safely.
     </p>
   </div>
 </template>
