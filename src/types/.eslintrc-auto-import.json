@@ -281,7 +281,6 @@
     "useSwipe": true,
     "useTemplateRef": true,
     "useTemplateRefsList": true,
-    "useTestStore": true,
     "useTextDirection": true,
     "useTextSelection": true,
     "useTextareaAutosize": true,

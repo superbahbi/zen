@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { Notivue, Notification } from 'notivue'
+import { Notivue, Notification } from "notivue"
 </script>
 
 <template>
-  <div>
+  <div class="min-h-screen flex flex-col">
     <AppHeader />
 
-    <div class="p-4 prose">
+    <div
+      class="max-w-lg mx-auto p-4 prose flex-grow flex items-center justify-center"
+    >
       <RouterView />
     </div>
 
-    <AppFooter />
+    <AppFooter class="mt-auto" />
 
     <Notivue v-slot="item">
       <Notification :item="item" />
@@ -18,4 +20,4 @@ import { Notivue, Notification } from 'notivue'
   </div>
 </template>
 
-<style scoped></style>
+<style lang="scss"></style>

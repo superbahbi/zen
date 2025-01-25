@@ -51,15 +51,23 @@ async function checkAndBlockUrl(tabId: number) {
 
 // Listen for tab activation
 chrome.tabs.onActivated.addListener(async () => {
-  const tabs = await chrome.tabs.query({ active: true, currentWindow: true })
-  if (tabs.length > 0) {
-    await checkAndBlockUrl(tabs[0].id as number)
+  const { options } = await chrome.storage.sync.get("options")
+  const { blockingPreferences } = options
+  if (blockingPreferences.mode === "strict") {
+    const tabs = await chrome.tabs.query({ active: true, currentWindow: true })
+    if (tabs.length > 0) {
+      await checkAndBlockUrl(tabs[0].id as number)
+    }
   }
 })
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo) => {
   if (changeInfo.status === "complete") {
-    await checkAndBlockUrl(tabId)
+    const { options } = await chrome.storage.sync.get("options")
+    const { blockingPreferences } = options
+    if (blockingPreferences.mode === "strict") {
+      await checkAndBlockUrl(tabId)
+    }
   }
 })
 
