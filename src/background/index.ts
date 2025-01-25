@@ -24,6 +24,45 @@ chrome.runtime.onInstalled.addListener(async (opt) => {
   }
 })
 
+// Helper function to check and block URLs
+async function checkAndBlockUrl(tabId: number) {
+  const tab = await chrome.tabs.get(tabId)
+  if (tab.url) {
+    const { blockedUrls = [] } = await chrome.storage.sync.get("blockedUrls")
+    const currentUrl = new URL(tab.url)
+    const blockedUrl = blockedUrls.find((item: any) => {
+      try {
+        const itemUrl = new URL(item.url)
+        return (
+          currentUrl.hostname.includes(itemUrl.hostname) ||
+          itemUrl.hostname.includes(currentUrl.hostname)
+        )
+      } catch {
+        return false
+      }
+    })
+    if (blockedUrl && blockedUrl.isBlocked === true) {
+      chrome.tabs.update(tabId, {
+        url: chrome.runtime.getURL("src/ui/blocked/index.html"),
+      })
+    }
+  }
+}
+
+// Listen for tab activation
+chrome.tabs.onActivated.addListener(async () => {
+  const tabs = await chrome.tabs.query({ active: true, currentWindow: true })
+  if (tabs.length > 0) {
+    await checkAndBlockUrl(tabs[0].id as number)
+  }
+})
+
+chrome.tabs.onUpdated.addListener(async (tabId, changeInfo) => {
+  if (changeInfo.status === "complete") {
+    await checkAndBlockUrl(tabId)
+  }
+})
+
 self.onerror = function (message, source, lineno, colno, error) {
   console.info("Error: " + message)
   console.info("Source: " + source)
