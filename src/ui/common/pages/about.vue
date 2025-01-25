@@ -5,9 +5,9 @@
     <h1>About Us</h1>
 
     <p>
-      Welcome to Mugai/zen, where modern solutions meet mindfulness. We're
+      Welcome to mugai/zen, where modern solutions meet mindfulness. We're
       dedicated to creating tools that harmonize productivity with the
-      principles of Zen philosophy.
+      principles of mindful living.
     </p>
 
     <p>
