@@ -41,10 +41,10 @@
     <p>
       For more information or to exercise these rights, please contact us at:
       <a
-        href="mailto:support@example.com"
+        href="mailto:support@mindfulwithmugai.com"
         class="text-primary"
       >
-        support@example.com
+        support@mindfulwithmugai.com
       </a>
     </p>
   </div>
