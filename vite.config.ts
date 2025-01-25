@@ -49,10 +49,6 @@ export default defineConfig({
         // additionalData: `@use "/src/assets/base.scss";`,
         additionalData: (content, filePath) => {
           // do not include base.scss (tailwind etc) in content-script iframe as it will be affect main page styles
-          if (filePath.includes("content-script/index.scss")) {
-            return content
-          }
-
           return `@use "/src/assets/base.scss";\n${content}`
         },
       },
@@ -166,7 +162,6 @@ export default defineConfig({
       // ui or pages that are not specified in manifest file need to be specified here
       input: {
         setup: "src/ui/setup/index.html",
-        iframe: "src/ui/content-script-iframe/index.html",
       },
     },
   },

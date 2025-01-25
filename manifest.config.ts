@@ -26,14 +26,6 @@ export default {
     service_worker: "src/background/index.ts",
     type: "module",
   },
-  // content_scripts: [
-  //   {
-  //     all_frames: false,
-  //     js: ["src/content-script/index.ts"],
-  //     matches: ["*://*/*"],
-  //     run_at: "document_end",
-  //   },
-  // ],
   options_page: "src/ui/options-page/index.html",
   host_permissions: [],
   permissions: ["storage", "tabs", "background", "activeTab"],

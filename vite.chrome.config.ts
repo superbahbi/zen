@@ -62,9 +62,6 @@ ViteConfig.plugins.unshift(
   crx({
     manifest,
     browser,
-    contentScripts: {
-      injectCss: true,
-    },
   }),
 )
 
