@@ -26,7 +26,6 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
   - Action Popup
   - Options
   - Content Script
-  - Browser Side Panel
   - Setup pages for Install and Update events
   - Offscreen pages for audio, screen recording etc
   - Sample pages for Contact, About, Pricing etc
@@ -84,7 +83,6 @@ _Please create an issue if you feel some feature is missing or could be improved
 │   │   ├── content-script-iframe        # Content script app injected into pages by content script
 │   │   ├── options-page  # Extension options
 │   │   ├── setup        # Install/update pages
-│   │   └── side-panel   # Browser side panel
 │   └── utils            # Shared utilities
 ├── manifest.config.ts    # Base manifest configuration
 ├── vite.chrome.config.ts       # Chrome specific Vite configuration overrides

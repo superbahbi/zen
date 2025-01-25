@@ -34,12 +34,9 @@ export default {
   //     run_at: "document_end",
   //   },
   // ],
-  // side_panel: {
-  //   default_path: "src/ui/side-panel/index.html",
-  // },
   options_page: "src/ui/options-page/index.html",
   host_permissions: [],
-  permissions: ["storage", "tabs", "background", "activeTab"], //, "sidePanel"
+  permissions: ["storage", "tabs", "background", "activeTab"],
   web_accessible_resources: [],
   icons: {
     16: "src/assets/logo.png",

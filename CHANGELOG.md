@@ -10,7 +10,6 @@
   - Action Popup
   - Options Page
   - Setup pages for Install/Update events
-  - Side Panel support
   - Content Script integration
 
 ### ✨ Features
