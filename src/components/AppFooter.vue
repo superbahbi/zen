@@ -3,10 +3,7 @@
     class="flex justify-between bg-base-200 text-base-content items-center p-2 text-xs"
   >
     <aside>
-      <p>
-        Copyright © {{ new Date().getFullYear() }} Be Mindful with Zen - All
-        right reserved
-      </p>
+      <p>Copyright © {{ new Date().getFullYear() }} mugai/zen</p>
     </aside>
     <nav class="flex gap-2">
       <a

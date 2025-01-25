@@ -6,9 +6,7 @@ import { Notivue, Notification } from "notivue"
   <div class="min-h-screen flex flex-col">
     <AppHeader />
 
-    <div
-      class="max-w-lg mx-auto p-4 prose flex-grow flex items-center justify-center"
-    >
+    <div class="mx-auto p-4 prose flex-grow flex items-center justify-center">
       <RouterView />
     </div>
 

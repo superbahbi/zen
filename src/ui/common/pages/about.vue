@@ -5,13 +5,22 @@
     <h1>About Us</h1>
 
     <p>
-      Welcome to our platform! We are dedicated to providing the best service to
-      our users. Our mission is to deliver high-quality products and exceptional
-      customer support.
+      Welcome to Mugai/zen, where modern solutions meet mindfulness. We're
+      dedicated to creating tools that harmonize productivity with the
+      principles of Zen philosophy.
     </p>
 
-    <p>Thank you for choosing us. We look forward to serving you!</p>
+    <p>
+      Our mission is to provide experiences that not only enhance your daily
+      life but also promote clarity, focus, and inner peace. We believe in
+      creating solutions that maintain simplicity while helping you achieve
+      balance in all aspects of life.
+    </p>
 
+    <p>
+      Thank you for joining us on this journey of mindful living. We're honored
+      to be your partner in achieving both efficiency and personal growth.
+    </p>
     <div class="flex gap-2">
       <RouterLink
         to="/common/change-log"
