@@ -1,49 +1,62 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useBlockStore } from "@/stores/block.store"
+const blockStore = useBlockStore()
+const { blockedUrls } = storeToRefs(blockStore)
+let url = ref("")
+// Add save functionality
+const showConfirmation = ref(false)
+const saveUrl = () => {
+  if (!url.value.startsWith("http://") && !url.value.startsWith("https://")) {
+    url.value = "https://" + url.value
+  }
+  blockStore.addUrl(url.value)
+  showConfirmation.value = true
+  url.value = ""
+  setTimeout(() => {
+    showConfirmation.value = false
+  }, 2000)
+}
+</script>
 
 <template>
   <div>
     <div class="hero">
       <div class="hero-content text-center">
         <div class="max-w-md">
-          <h1>Hello there</h1>
+          <h1>Be mindful with your time</h1>
           <p>
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            This extension is designed to help you stay focused and productive
+            by blocking distracting websites and providing productivity tools.
           </p>
-
+          <p>
+            Enter the URL of the website you want to block and click "Save". The
+            website will be blocked from your browser.
+          </p>
           <div class="flex gap-2 justify-center mb-4">
-            <RouterLink
-              to="/common/features"
+            <input
+              v-model="url"
+              type="text"
+              class="input input-primary"
+              placeholder="Enter website URL"
+            />
+            <button
               class="btn btn-primary"
+              @click="saveUrl"
             >
-              <i-ph-list-heart />
-              Features
-            </RouterLink>
-            <RouterLink
-              to="/common/pricing"
-              class="btn btn-primary"
-            >
-              <i-ph-presentation-chart />
-              Pricing
-            </RouterLink>
+              Save
+            </button>
           </div>
-
-          <RouterLink
-            to="/common/account/login"
-            class="btn btn-secondary btn-lg"
+          <div
+            v-if="showConfirmation"
+            class="text-green-600 mb-4"
           >
-            <i-ph-rocket-launch />
-            Get Started Now
-          </RouterLink>
-
-          <br />
-
+            Settings saved successfully!
+          </div>
           <RouterLink
-            to="/action-popup/playground"
+            to="/action-popup/block-website"
             class="btn btn-link"
           >
-            Playground
+            Block Website
           </RouterLink>
 
           <a
@@ -55,7 +68,7 @@
 
           <a
             class="btn btn-link"
-            href="https://mubaidr.js.org"
+            href="https://www.robertkugler.dev"
           >
             Support
           </a>
