@@ -26,7 +26,6 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
   - Action Popup
   - Options
   - Content Script
-  - Devtools panel
   - Browser Side Panel
   - Setup pages for Install and Update events
   - Offscreen pages for audio, screen recording etc
@@ -75,7 +74,6 @@ _Please create an issue if you feel some feature is missing or could be improved
 │   │   ├── useLocale  # Manage locale in your extension
 │   │   ├── useTheme  # Manage theme in your extension
 │   ├── content-script     # Content scripts injected into pages
-│   ├── devtools          # Chrome devtools panel
 │   ├── locales           # i18n translation files
 │   ├── offscreen         # Offscreen pages (audio, recording)
 │   ├── stores            # Pinia stores
@@ -84,7 +82,6 @@ _Please create an issue if you feel some feature is missing or could be improved
 │   │   ├── action-popup  # Browser toolbar popup
 │   │   ├── common        # Shared pages
 │   │   ├── content-script-iframe        # Content script app injected into pages by content script
-│   │   ├── devtools-panel # Devtools panel UI
 │   │   ├── options-page  # Extension options
 │   │   ├── setup        # Install/update pages
 │   │   └── side-panel   # Browser side panel
