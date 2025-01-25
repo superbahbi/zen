@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const optionsStore = useOptionsStore()
-// const { toggleDark } = optionsStore
-const { isDark, profile, others } = storeToRefs(optionsStore)
+const { isDark, blockingPreferences } = storeToRefs(optionsStore)
 </script>
 
 <template>
@@ -10,75 +9,61 @@ const { isDark, profile, others } = storeToRefs(optionsStore)
   >
     <RouterLinkUp />
 
-    <h1>Options</h1>
+    <h1>Block Settings</h1>
     <p>
-      You can configure various options related to this extension here. These
-      options/ settings are peristent, available in all contexts, implemented
-      using Pinia and useBrowserStorage composable.
+      Configure your website blocking preferences. These settings are
+      synchronized across all your browser sessions.
     </p>
 
     <h3>User Interface</h3>
-    <p>Change application interface settings.</p>
-
     <div class="form-control">
-      <label>Enabel Dark Theme</label>
-      <input
-        v-model="isDark"
-        type="checkbox"
-        class="toggle"
-      />
+      <label class="label cursor-pointer justify-start gap-4">
+        <span class="label-text">Dark Theme</span>
+        <input
+          v-model="isDark"
+          type="checkbox"
+          class="toggle"
+        />
+      </label>
     </div>
 
     <div class="form-control">
-      <label>Change Language</label>
-      <LocaleSwitch />
+      <label class="label cursor-pointer justify-start gap-4">
+        <span class="label-text">Language</span>
+        <LocaleSwitch />
+      </label>
     </div>
 
-    <h3>Profile</h3>
-    <p>Change your name and age.</p>
+    <h3>Blocking Preferences</h3>
+    <p>Configure how the blocking feature works.</p>
 
     <div class="form-control">
-      <label>Name</label>
-      <input
-        v-model="profile.name"
-        type="text"
-      />
-    </div>
-
-    <div class="form-control">
-      <label>Age</label>
-      <input
-        v-model="profile.age"
-        type="number"
-      />
-    </div>
-
-    <h3>Others</h3>
-    <p>Some other settings related to extension usage.</p>
-
-    <div class="form-control">
-      <label>Enable Awesome Feature</label>
-      <input
-        v-model="others.awesome"
-        type="checkbox"
-        class="checkbox"
-      />
+      <label class="label cursor-pointer justify-start gap-4">
+        <span class="label-text">Show Motivation Message</span>
+        <input
+          v-model="blockingPreferences.showMotivationMessage"
+          type="checkbox"
+          class="checkbox"
+        />
+      </label>
     </div>
 
     <div class="form-control">
-      <label>Some Counter</label>
-      <input
-        v-model="others.counter"
-        type="number"
-      />
+      <label class="label">
+        <span class="label-text">Block Mode</span>
+      </label>
+      <select
+        v-model="blockingPreferences.mode"
+        class="select select-bordered"
+      >
+        <option value="strict">Strict - No Override</option>
+        <option value="flexible">Flexible - Allow Temporary Access</option>
+      </select>
     </div>
 
-    <p>
-      * You can also make this a compoenent and then able to use this in any
-      context like Popup, Developer Tools UI etc
-    </p>
-    <p>
-      Feel free to change groups, lsitings or options as per your requirements.
-    </p>
+    <div class="mt-8 text-sm text-base-content/70">
+      * These settings apply to all blocked websites. You can configure
+      individual website settings in the main blocking interface.
+    </div>
   </div>
 </template>
