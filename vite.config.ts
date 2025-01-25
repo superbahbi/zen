@@ -10,7 +10,6 @@ import VueRouter from "unplugin-vue-router/vite"
 import { defineConfig } from "vite"
 // @ts-expect-error commonjs module
 import { defineViteConfig as define } from "./define.config.mjs"
-import vueDevTools from "vite-plugin-vue-devtools"
 import TurboConsole from "unplugin-turbo-console/vite"
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
 import { dirname, relative, resolve } from "node:path"
@@ -69,8 +68,6 @@ export default defineConfig({
       globalSFCScope: true,
       compositionOnly: true,
     }),
-
-    vueDevTools(),
 
     // https://github.com/posva/unplugin-vue-router
     VueRouter({
@@ -170,7 +167,6 @@ export default defineConfig({
       input: {
         setup: "src/ui/setup/index.html",
         iframe: "src/ui/content-script-iframe/index.html",
-        devtoolsPanel: "src/ui/devtools-panel/index.html",
       },
     },
   },
