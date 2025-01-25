@@ -9,7 +9,7 @@ const version = __VERSION__
   >
     <h1>🎉 Updated! 🚀</h1>
     <p>
-      Thank you for installing {{ displayName }}! ❤️
+      Thank you for updating {{ displayName }}! ❤️
       <br />
       Now you can close this tab and start using the extension.
     </p>
@@ -24,18 +24,5 @@ const version = __VERSION__
         Change Log
       </RouterLink>
     </p>
-
-    <hr />
-
-    <div class="flex flex-wrap gap-2">
-      <RouterLink
-        v-for="route in appRouter.getRoutes()"
-        :key="route.path"
-        :to="route.path"
-        class="btn"
-      >
-        {{ route.path }}
-      </RouterLink>
-    </div>
   </div>
 </template>
