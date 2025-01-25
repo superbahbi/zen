@@ -11,15 +11,12 @@ const [major, minor, patch, label = "0"] = version
   .split(/[.-]/)
 
 export default {
-  author: {
-    email: "superbahbi@gmail.com",
-  },
   name: env.mode === "staging" ? `[INTERNAL] ${name}` : displayName || name,
   description,
   // up to four numbers separated by dots
   version: `${major}.${minor}.${patch}.${label}`,
   // semver is OK in "version_name"
-  
+
   manifest_version: 3,
   // key: '',
   action: {
@@ -40,10 +37,9 @@ export default {
   // side_panel: {
   //   default_path: "src/ui/side-panel/index.html",
   // },
-  devtools_page: "src/devtools/index.html",
   options_page: "src/ui/options-page/index.html",
   host_permissions: [],
-  permissions: ["storage", "tabs", "background"], //, "sidePanel"
+  permissions: ["storage", "tabs", "background", "activeTab"], //, "sidePanel"
   web_accessible_resources: [],
   icons: {
     16: "src/assets/logo.png",
