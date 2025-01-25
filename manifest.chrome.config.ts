@@ -7,5 +7,8 @@ const { version } = packageJson
 export default defineManifest((env) => ({
   ...ManifestConfig,
   key: env["CHROME_ADDON_KEY"],
+  author: {
+    email: "superbahbi@gmail.com",
+  },
   version_name: version,
 }))
