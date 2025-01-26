@@ -30,13 +30,18 @@ async function checkAndBlockUrl(tabId: number) {
   if (tab.url) {
     const { blockedUrls = [] } = await chrome.storage.sync.get("blockedUrls")
     const currentUrl = new URL(tab.url)
-    const blockedUrl = blockedUrls.find((item: any) => {
+    const blockedUrl = blockedUrls.find((item: { url: string }) => {
       try {
         const itemUrl = new URL(item.url)
-        return (
-          currentUrl.hostname.includes(itemUrl.hostname) ||
-          itemUrl.hostname.includes(currentUrl.hostname)
-        )
+        if (currentUrl.hostname) {
+          const normalizeHost = (host: string) => host.replace(/^www\./i, "")
+          return (
+            normalizeHost(currentUrl.hostname) ===
+            normalizeHost(itemUrl.hostname)
+          )
+        } else {
+          return false
+        }
       } catch {
         return false
       }
@@ -71,6 +76,6 @@ self.onerror = function (message, source, lineno, colno, error) {
   console.info("Error object: " + error)
 }
 
-console.info("hello world from background")
+console.info("Zen by Mugai background script")
 
 export {}
