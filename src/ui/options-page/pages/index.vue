@@ -61,12 +61,12 @@ interface BlockModeOption {
         </label>
       </div>
 
-      <div class="form-control">
+      <!-- <div class="form-control">
         <label class="label cursor-pointer justify-start gap-4">
           <span class="label-text">Language</span>
           <LocaleSwitch />
         </label>
-      </div>
+      </div> -->
     </section>
 
     <!-- Blocking Preferences Section -->

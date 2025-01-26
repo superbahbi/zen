@@ -23,9 +23,6 @@
           </RouterLink>
         </li>
         <li>
-          <LocaleSwitch />
-        </li>
-        <li>
           <div class="dropdown dropdown-bottom dropdown-end">
             <div
               tabindex="0"
