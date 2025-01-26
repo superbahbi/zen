@@ -8,7 +8,7 @@ export default defineManifest((env) => ({
   ...ManifestConfig,
   key: env["CHROME_ADDON_KEY"],
   author: {
-    email: "superbahbi@gmail.com",
+    email: "bobby@mindfulwithmugai.com",
   },
   version_name: version,
 }))

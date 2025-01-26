@@ -4,7 +4,7 @@ import ManifestConfig from "./manifest.config"
 // @ts-expect-error ManifestConfig provides all required fields
 export default defineManifest((env) => ({
   ...ManifestConfig,
-  author: "Bobby Lee <superbahbi@gmail.com>",
+  author: "Bobby Lee <bobby@mindfulwithmugai.com>",
   browser_specific_settings: {
     gecko: {
       id: process.env["VITE_FIREFOX_ADDON_ID"],
