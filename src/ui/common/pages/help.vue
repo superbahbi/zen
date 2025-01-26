@@ -27,19 +27,21 @@
         About Us
       </RouterLink>
 
-      <RouterLink
-        to="/common/privacy-policy"
+      <a
+        href="https://mindfulwithmugai.com/privacy"
+        target="_blank"
         class="btn btn-primary"
       >
         Privacy Policy
-      </RouterLink>
+      </a>
 
-      <RouterLink
-        to="/common/terms-of-service"
+      <a
+        href="https://mindfulwithmugai.com/terms"
+        target="_blank"
         class="btn btn-primary"
       >
-        Terms
-      </RouterLink>
+        Terms of Service
+      </a>
     </div>
   </div>
 </template>

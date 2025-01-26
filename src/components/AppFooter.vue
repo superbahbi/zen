@@ -7,7 +7,7 @@
     </aside>
     <nav class="flex gap-2">
       <a
-        href="https://www.mindfulwithmugai.com"
+        href="https://www.mindfulwithmugai.com/chrome-extension"
         target="_blank"
       >
         <svg
