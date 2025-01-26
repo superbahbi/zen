@@ -32,7 +32,7 @@ const saveUrl = () => {
             Enter the URL of the website you want to block and click "Save". The
             website will be blocked from your browser.
           </p>
-          <div class="flex gap-2 justify-center mb-4">
+          <div class="flex gap-2 justify-center mb-4 w-full">
             <input
               v-model="url"
               type="text"
@@ -52,26 +52,14 @@ const saveUrl = () => {
           >
             Settings saved successfully!
           </div>
-          <RouterLink
-            to="/action-popup/block-website"
-            class="btn btn-link"
-          >
-            Block Website
-          </RouterLink>
-
-          <a
-            class="btn btn-link"
-            href="https://github.com/mubaidr/vite-vue3-browser-extension-v3"
-          >
-            Documentation
-          </a>
-
-          <a
-            class="btn btn-link"
-            href="https://www.robertkugler.dev"
-          >
-            Support
-          </a>
+          <div class="flex gap-2 justify-center mb-4">
+            <RouterLink
+              to="/action-popup/block-website"
+              class="btn btn-primary w-full px-4"
+            >
+              Blocked Website
+            </RouterLink>
+          </div>
         </div>
       </div>
     </div>
