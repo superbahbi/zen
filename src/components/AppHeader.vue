@@ -12,7 +12,7 @@
           alt="logo"
           class="h-8 w-auto"
         />
-        <div class="text-base font-semibold">Zen</div>
+        <div class="text-base font-semibold">Zen by Mugai</div>
       </RouterLink>
     </div>
     <div class="flex-none">
