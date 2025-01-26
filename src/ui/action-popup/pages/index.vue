@@ -6,36 +6,75 @@ import { storeToRefs } from "pinia"
 
 // Initialize the block store and extract necessary references
 const blockStore = useBlockStore()
+const { blockedUrls } = storeToRefs(blockStore)
 
 // Reactive variables for user input and UI feedback
 const inputUrl = ref("")
 const showConfirmation = ref(false)
 const showError = ref(false)
 
-// Utility function to normalize the URL
+// Utility function to normalize the URL to just the domain
 const normalizeUrl = (url: string): string => {
   let normalized = url.trim().replace(/\/+$/, "")
   if (!/^https?:\/\//i.test(normalized)) {
     normalized = `https://${normalized}`
   }
-  return normalized
+
+  try {
+    const parsedUrl = new URL(normalized)
+    // Return only the protocol and hostname
+    return `${parsedUrl.protocol}//${parsedUrl.hostname}`
+  } catch {
+    return normalized
+  }
 }
 
 // Zod schema for URL validation
-const urlSchema = z.string().url()
+const urlSchema = z
+  .string()
+  .url()
+  .refine(
+    (value) => {
+      try {
+        const parsedUrl = new URL(value)
+
+        // Validate TLD: 2-63 letters
+        const hostnameParts = parsedUrl.hostname.split(".")
+        const tld = hostnameParts.pop()?.toLowerCase() || ""
+        const isValidTLD = /^[a-z]{2,63}$/.test(tld)
+
+        // Validate protocol: http or https
+        const isValidProtocol = ["http:", "https:"].includes(parsedUrl.protocol)
+
+        // Ensure there's no path
+        const hasNoPath =
+          parsedUrl.pathname === "/" || parsedUrl.pathname === ""
+
+        return isValidTLD && isValidProtocol && hasNoPath
+      } catch {
+        return false
+      }
+    },
+    {
+      message:
+        "Invalid URL. Ensure it has a proper TLD, uses http or https, and contains no path.",
+    },
+  )
 
 // Function to validate the URL using the schema
 const isValidURL = (url: string): boolean => urlSchema.safeParse(url).success
 
 // Function to handle saving the URL
 const saveUrl = () => {
-  if (!isValidURL(inputUrl.value)) {
+  const normalizedUrl = normalizeUrl(inputUrl.value)
+
+  if (!isValidURL(normalizedUrl)) {
     showError.value = true
     showConfirmation.value = false
     return
   }
 
-  blockStore.addUrl(inputUrl.value)
+  blockStore.addUrl(normalizedUrl)
   showConfirmation.value = true
   showError.value = false
   inputUrl.value = ""
