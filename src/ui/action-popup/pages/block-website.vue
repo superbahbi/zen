@@ -22,17 +22,22 @@ const { blockedUrls } = storeToRefs(blockStore)
         :key="url.url"
         class="flex items-center gap-2 mb-2"
       >
-        <p class="flex-grow">{{ url.url }}</p>
+        <p
+          class="flex-grow text-gray-800 dark:text-gray-200 font-mono overflow-x-auto whitespace-nowrap"
+        >
+          {{ url.url }}
+        </p>
+
         <!-- Toggle Block -->
         <button
-          class="btn btn-primary"
+          class="btn btn-link btn-lg text-black dark:text-white"
           @click="blockStore.toggleBlock(url.url)"
         >
           <i-ph-toggle-right v-if="url.isBlocked" />
           <i-ph-toggle-left v-else />
         </button>
         <button
-          class="btn btn-primary"
+          class="btn btn-link btn-lg text-black dark:text-white"
           @click="blockStore.removeUrl(url.url)"
         >
           <i-ph-trash />
