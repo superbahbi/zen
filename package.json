@@ -64,8 +64,8 @@
     "web-ext": "^8.3.0",
     "webext-bridge": "^6.0.1"
   },
-  "displayName": "Zen",
-  "name": "zen",
+  "displayName": "Zen by Mugai - Block Distractions",
+  "name": "zen-by-mugai",
   "overrides": {
     "@crxjs/vite-plugin": "$@crxjs/vite-plugin"
   },
