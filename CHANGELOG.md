@@ -1,5 +1,14 @@
 # Change Log
 
+## v0.0.2 (2025-01-29)
+
+### 🐛 Bug Fixes
+
+- Fixed blocked redirect issue where users were unable to access whitelisted sites after temporary blocks
+  - Improved URL pattern matching logic
+  - Added proper exception handling for redirect scenarios
+  - Enhanced user feedback with clear error messages
+
 ## v0.0.1 (2025-01-25)
 
 ### 🎉 Initial Release
