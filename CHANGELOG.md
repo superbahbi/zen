@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.0.3 (2025-01-30)
+
+- Added support for Chrome Web Store
+
 ## v0.0.2 (2025-01-29)
 
 ### 🐛 Bug Fixes
