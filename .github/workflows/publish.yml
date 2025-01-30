@@ -1,60 +1,88 @@
-name: Publish Extension To Store
+name: Publish
 
 on:
-  release:
-    types: [published]
-  workflow_dispatch:
+  push:
+    tags:
+      - "*"
 
 jobs:
-  build-and-publish:
+  build:
+    name: Publish webextension
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          node-version: 22
+          node-version: 20
+      - name: Build
+        run: pnpm build
 
-      - uses: pnpm/action-setup@v4
+      - name: Upload & release
+        uses: mnao305/chrome-extension-upload@v5.0.0
         with:
-          version: latest
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build extension
-        run: pnpm run build
-
-      - name: Zip extension
-        run: |
-          cd dist/chrome
-          zip -r ../../chrome.zip .
-
-      - name: Publish to Chrome Web Store
-        uses: Passiverecords/chrome-extension-upload-action@1.4.1
-        with:
-          file-name: chrome.zip
-          refresh-token: ${{ secrets.CHROME_WEB_STORE_REFRESH_TOKEN }}
+          file-path: dist/chrome.zip
+          extension-id: ${{ secrets.CHROME_APP_ID }}
           client-id: ${{ secrets.CHROME_WEB_STORE_CLIENT_ID }}
           client-secret: ${{ secrets.CHROME_WEB_STORE_CLIENT_SECRET }}
-          app-id: ${{ secrets.CHROME_APP_ID }}
-          publish: true
+          refresh-token: ${{ secrets.CHROME_WEB_STORE_REFRESH_TOKEN }}
+# name: Publish Extension To Store
 
-      # - name: Publish to Edge Addon Store
-      #   uses: wdzeng/edge-addon@v1
-      #   with:
-      #     zip-path: chrome.zip
-      #     product-id: ${{ secrets.EDGE_PRODUCT_ID }}
-      #     client-id: ${{ secrets.EDGE_CLIENT_ID }}
-      #     client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
-      #     access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
+# on:
+#   release:
+#     types: [published]
+#   workflow_dispatch:
 
-      # - name: Publish to Firefox Addon Store
-      #   uses: cardinalby/webext-buildtools-firefox-addons-action@v1
-      #   with:
-      #     zipFilePath: firefox.zip
-      #     extensionId: ${{ secrets.FIREFOX_ADDON_ID }}
-      #     jwtIssuer: ${{ secrets.FF_JWT_ISSUER }}
-      #     jwtSecret: ${{ secrets.FF_JWT_SECRET }}
-      #     cd /dist/firefox
-      #     zip -r ../../firefox.zip .
+# jobs:
+#   build-and-publish:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: 22
+
+#       - uses: pnpm/action-setup@v4
+#         with:
+#           version: latest
+
+#       - name: Install dependencies
+#         run: pnpm install
+
+#       - name: Build extension
+#         run: pnpm run build
+
+#       - name: Zip extension
+#         run: |
+#           cd dist/chrome
+#           zip -r ../../chrome.zip .
+
+#       - name: Publish to Chrome Web Store
+#         uses: Passiverecords/chrome-extension-upload-action@1.4.1
+#         with:
+#           file-name: chrome.zip
+# refresh-token: ${{ secrets.CHROME_WEB_STORE_REFRESH_TOKEN }}
+# client-id: ${{ secrets.CHROME_WEB_STORE_CLIENT_ID }}
+# client-secret: ${{ secrets.CHROME_WEB_STORE_CLIENT_SECRET }}
+#           app-id: ${{ secrets.CHROME_APP_ID }}
+#           publish: true
+
+# - name: Publish to Edge Addon Store
+#   uses: wdzeng/edge-addon@v1
+#   with:
+#     zip-path: chrome.zip
+#     product-id: ${{ secrets.EDGE_PRODUCT_ID }}
+#     client-id: ${{ secrets.EDGE_CLIENT_ID }}
+#     client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
+#     access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
+
+# - name: Publish to Firefox Addon Store
+#   uses: cardinalby/webext-buildtools-firefox-addons-action@v1
+#   with:
+#     zipFilePath: firefox.zip
+#     extensionId: ${{ secrets.FIREFOX_ADDON_ID }}
+#     jwtIssuer: ${{ secrets.FF_JWT_ISSUER }}
+#     jwtSecret: ${{ secrets.FF_JWT_SECRET }}
+#     cd /dist/firefox
+#     zip -r ../../firefox.zip .
