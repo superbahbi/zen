@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "pnpm"
@@ -36,7 +36,7 @@ jobs:
           zip -r ../../firefox.zip .
 
       - name: Publish to Chrome Web Store
-        uses: Passiverecords/chrome-extension-upload-action
+        uses: Passiverecords/chrome-extension-upload-action@1.4.1
         with:
           file-name: chrome.zip
           refresh-token: ${{ secrets.CHROME_WEB_STORE_REFRESH_TOKEN }}
@@ -46,7 +46,7 @@ jobs:
           publish: true
 
       # - name: Publish to Edge Addon Store
-      #   uses: wdzeng/edge-addon
+      #   uses: wdzeng/edge-addon@v1
       #   with:
       #     zip-path: chrome.zip
       #     product-id: ${{ secrets.EDGE_PRODUCT_ID }}
