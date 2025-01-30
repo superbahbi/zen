@@ -45,19 +45,19 @@ jobs:
           app-id: ${{ secrets.CHROME_APP_ID }}
           publish: true
 
-      - name: Publish to Edge Addon Store
-        uses: wdzeng/edge-addon
-        with:
-          zip-path: chrome.zip
-          product-id: ${{ secrets.EDGE_PRODUCT_ID }}
-          client-id: ${{ secrets.EDGE_CLIENT_ID }}
-          client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
-          access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
+      # - name: Publish to Edge Addon Store
+      #   uses: wdzeng/edge-addon
+      #   with:
+      #     zip-path: chrome.zip
+      #     product-id: ${{ secrets.EDGE_PRODUCT_ID }}
+      #     client-id: ${{ secrets.EDGE_CLIENT_ID }}
+      #     client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
+      #     access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
 
-      - name: Publish to Firefox Addon Store
-        uses: cardinalby/webext-buildtools-firefox-addons-action@v1
-        with:
-          zipFilePath: firefox.zip
-          extensionId: ${{ secrets.FIREFOX_ADDON_ID }}
-          jwtIssuer: ${{ secrets.FF_JWT_ISSUER }}
-          jwtSecret: ${{ secrets.FF_JWT_SECRET }}
+      # - name: Publish to Firefox Addon Store
+      #   uses: cardinalby/webext-buildtools-firefox-addons-action@v1
+      #   with:
+      #     zipFilePath: firefox.zip
+      #     extensionId: ${{ secrets.FIREFOX_ADDON_ID }}
+      #     jwtIssuer: ${{ secrets.FF_JWT_ISSUER }}
+      #     jwtSecret: ${{ secrets.FF_JWT_SECRET }}
