@@ -2,6 +2,7 @@
   "dependencies": {
     "marked": "^15.0.6",
     "notivue": "^2.4.5",
+    "np": "^10.2.0",
     "pinia": "^2.3.0",
     "vue": "^3.5.13",
     "vue-i18n": "^11.0.1",
@@ -99,7 +100,8 @@
     "launch:all": "tsx scripts/launch.ts --all",
     "lint": "eslint . --fix --cache",
     "lint:manifest": "web-ext lint --pretty",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "app-release": "np --no-publish --no-cleanup --no-release-draft  --no-tests"
   },
   "type": "module",
   "version": "0.0.3"
