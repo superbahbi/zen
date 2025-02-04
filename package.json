@@ -10,7 +10,7 @@
     "webextension-polyfill": "^0.12.0",
     "zod": "^3.24.1"
   },
-  "description": "A Chrome extension for mindful individuals to block distractions and stay focused on their tasks.",
+  "description": "A browser extension for mindful individuals to block distractions and stay focused on their tasks.",
   "devDependencies": {
     "@crxjs/vite-plugin": "2.0.0-beta.28",
     "@eslint/compat": "^1.2.4",
