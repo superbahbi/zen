@@ -1,14 +1,14 @@
-;(function () {
-  "use strict"
+(function () {
+  'use strict';
 
-  const LOCAL_RELOAD_SOCKET_PORT = 8081
-  const LOCAL_RELOAD_SOCKET_URL = `ws://localhost:${LOCAL_RELOAD_SOCKET_PORT}`
+  const LOCAL_RELOAD_SOCKET_PORT = 8081;
+  const LOCAL_RELOAD_SOCKET_URL = `ws://localhost:${LOCAL_RELOAD_SOCKET_PORT}`;
 
-  const DO_UPDATE = "do_update"
-  const DONE_UPDATE = "done_update"
+  const DO_UPDATE = "do_update";
+  const DONE_UPDATE = "done_update";
 
   class MessageInterpreter {
-    constructor() {}
+     constructor() {}
 
     static send(message) {
       return JSON.stringify(message)
@@ -19,24 +19,30 @@
     }
   }
 
-  function initClient({ id, onUpdate }) {
-    const ws = new WebSocket(LOCAL_RELOAD_SOCKET_URL)
+  function initClient({
+    id,
+    onUpdate,
+  }
+
+
+  ) {
+    const ws = new WebSocket(LOCAL_RELOAD_SOCKET_URL);
 
     ws.onopen = () => {
       ws.addEventListener("message", (event) => {
-        const message = MessageInterpreter.receive(String(event.data))
+        const message = MessageInterpreter.receive(String(event.data));
 
         if (message.type === DO_UPDATE && message.id === id) {
-          onUpdate()
-          ws.send(MessageInterpreter.send({ type: DONE_UPDATE }))
+          onUpdate();
+          ws.send(MessageInterpreter.send({ type: DONE_UPDATE }));
           return
         }
-      })
-    }
+      });
+    };
   }
 
   function addRefresh() {
-    let pendingReload = false
+    let pendingReload = false;
 
     initClient({
       // @ts-expect-error That's because of the dynamic code loading
@@ -44,28 +50,29 @@
       onUpdate: () => {
         // disable reload when tab is hidden
         if (document.hidden) {
-          pendingReload = true
+          pendingReload = true;
           return
         }
-        reload()
+        reload();
       },
-    })
+    });
 
     // reload
     function reload() {
-      pendingReload = false
-      window.location.reload()
+      pendingReload = false;
+      window.location.reload();
     }
 
     // reload when tab is visible
     function reloadWhenTabIsVisible() {
       if (!document.hidden && pendingReload) {
-        reload()
+        reload();
       }
     }
 
-    document.addEventListener("visibilitychange", reloadWhenTabIsVisible)
+    document.addEventListener("visibilitychange", reloadWhenTabIsVisible);
   }
 
-  addRefresh()
-})()
+  addRefresh();
+
+})();

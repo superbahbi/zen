@@ -1,11 +1,12 @@
 {
-  "name": "chrome-extension-boilerplate-react-vite",
-  "version": "0.3.6",
-  "description": "chrome extension boilerplate",
+  "name": "zen-by-mugai",
+  "displayName": "Zen by Mugai - Block Distractions",
+  "version": "0.2.0",
+  "description": "A browser extension for mindful individuals to block distractions and stay focused on their tasks.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite.git"
+    "url": "https://github.com/superbahbi/zen"
   },
   "type": "module",
   "scripts": {
