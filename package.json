@@ -1,7 +1,7 @@
 {
   "name": "zen-by-mugai",
   "displayName": "Zen by Mugai - Block Distractions",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A browser extension for mindful individuals to block distractions and stay focused on their tasks.",
   "license": "MIT",
   "repository": {
@@ -40,7 +40,7 @@
     "@eslint/compat": "^1.2.5",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
-    "@types/chrome": "^0.0.270",
+    "@types/chrome": "^0.0.2.1",
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "@types/eslint__eslintrc": "^2.1.2",
     "@types/eslint__js": "^8.42.3",

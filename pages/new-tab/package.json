@@ -1,22 +1,18 @@
 {
-  "name": "@extension/content-ui",
+  "name": "@extension/new-tab",
   "version": "0.2.1",
-  "description": "chrome extension - content ui",
-  "type": "module",
+  "description": "chrome extension - new tab",
   "private": true,
   "sideEffects": true,
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "clean:bundle": "rimraf dist",
     "clean:node_modules": "pnpx rimraf node_modules",
     "clean:turbo": "rimraf .turbo",
-    "clean": "pnpm clean:bundle && pnpm clean:node_modules && pnpm clean:turbo",
-    "build:tailwindcss": "pnpm tailwindcss -i ./src/tailwind-input.css -o ./dist/tailwind-output.css -m",
-    "build": "pnpm build:tailwindcss && vite build",
-    "build:watch": "concurrently \"cross-env __DEV__=true vite build --mode development\" \"pnpm build:tailwindcss -- -w\"",
-    "dev": "pnpm build:tailwindcss && pnpm build:watch",
+    "clean": "pnpm clean:turbo && pnpm clean:node_modules",
+    "build": "vite build",
+    "dev": "cross-env __DEV__=true vite build --mode development",
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
     "prettier": "prettier . --write --ignore-path ../../.prettierignore",
@@ -25,14 +21,21 @@
   "dependencies": {
     "@extension/shared": "workspace:*",
     "@extension/storage": "workspace:*",
-    "@extension/ui": "workspace:*"
+    "@extension/ui": "workspace:*",
+    "@extension/i18n": "workspace:*"
   },
   "devDependencies": {
     "@extension/tailwindcss-config": "workspace:*",
     "@extension/tsconfig": "workspace:*",
-    "@extension/hmr": "workspace:*",
     "@extension/vite-config": "workspace:*",
-    "concurrently": "^9.0.1",
+    "sass": "1.79.4",
+    "postcss-load-config": "^6.0.1",
     "cross-env": "^7.0.3"
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
   }
 }
