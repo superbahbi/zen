@@ -1,11 +1,11 @@
 {
   "extensionDescription": {
-    "description": "Extension description",
-    "message": "Chrome extension boilerplate developed with Vite, React and Typescript"
+    "description": "Zen by Mugai - Block Distractions",
+    "message": "A browser extension for mindful individuals to block distractions and stay focused on their tasks."
   },
   "extensionName": {
-    "description": "Extension name",
-    "message": "Chrome extension boilerplate"
+    "description": "Zen by Mugai - Block Distractions",
+    "message": "Zen by Mugai - Block Distractions"
   },
   "toggleTheme": {
     "message": "Toggle theme"
