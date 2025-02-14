@@ -193,3 +193,19 @@
 2025-02-14T01:48:38.730055Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@extension/devtools"), path: AnchoredSystemPathBuf("pages/devtools") }: FileChanged { file: AnchoredSystemPathBuf("pages/devtools/public/logo.svg") }, WorkspacePackage { name: Other("@extension/devtools-panel"), path: AnchoredSystemPathBuf("pages/devtools-panel") }: FileChanged { file: AnchoredSystemPathBuf("pages/devtools-panel/vite.config.mts") }}))
 2025-02-14T01:48:38.756231Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
 2025-02-14T01:48:38.756255Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-02-14T01:49:01.630641Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pages/devtools")}
+2025-02-14T01:49:01.630672Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@extension/devtools"), path: AnchoredSystemPathBuf("pages/devtools") }: FileChanged { file: AnchoredSystemPathBuf("pages/devtools") }}))
+2025-02-14T01:49:01.729535Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pages/devtools-panel")}
+2025-02-14T01:49:01.729546Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@extension/devtools-panel"), path: AnchoredSystemPathBuf("pages/devtools-panel") }: FileChanged { file: AnchoredSystemPathBuf("pages/devtools-panel") }}))
+2025-02-14T01:49:02.330076Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/28.cookie")}
+2025-02-14T01:49:02.330103Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }: FileChanged { file: AnchoredSystemPathBuf(".turbo/cookies/28.cookie") }}))
+2025-02-14T01:49:02.829381Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/29.cookie")}
+2025-02-14T01:49:02.829390Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }: FileChanged { file: AnchoredSystemPathBuf(".turbo/cookies/29.cookie") }}))
+2025-02-14T01:49:31.830011Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("chrome-extension/manifest.js")}
+2025-02-14T01:49:31.830054Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("chrome-extension"), path: AnchoredSystemPathBuf("chrome-extension") }: FileChanged { file: AnchoredSystemPathBuf("chrome-extension/manifest.js") }}))
+2025-02-14T01:49:32.229441Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/30.cookie")}
+2025-02-14T01:49:32.229478Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }: FileChanged { file: AnchoredSystemPathBuf(".turbo/cookies/30.cookie") }}))
+2025-02-14T01:50:15.130612Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("tests/e2e/specs/page-dev-tools.test.ts")}
+2025-02-14T01:50:15.130634Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@extension/e2e"), path: AnchoredSystemPathBuf("tests/e2e") }: FileChanged { file: AnchoredSystemPathBuf("tests/e2e/specs/page-dev-tools.test.ts") }}))
+2025-02-14T01:50:15.633593Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/31.cookie")}
+2025-02-14T01:50:15.633605Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }: FileChanged { file: AnchoredSystemPathBuf(".turbo/cookies/31.cookie") }}))
