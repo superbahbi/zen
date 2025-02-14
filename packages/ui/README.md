@@ -29,19 +29,19 @@ pnpm install
 Add the following to the `tailwind.config.ts` file.
 
 ```ts
-import baseConfig from '@extension/tailwindcss-config';
-import { withUI } from '@extension/ui';
+import baseConfig from "@extension/tailwindcss-config"
+import { withUI } from "@extension/ui"
 
 export default withUI({
   ...baseConfig,
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-});
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+})
 ```
 
 Add the following to the `index.tsx` file.
 
 ```tsx
-import '@extension/ui/dist/global.css';
+import "@extension/ui/dist/global.css"
 ```
 
 ## Add Component
@@ -49,51 +49,55 @@ import '@extension/ui/dist/global.css';
 Add the following to the `lib/components/index.ts` file.
 
 ```tsx
-export * from './Button';
+export * from "./Button"
 ```
 
 Add the following to the `lib/components/Button.tsx` file.
 
 ```tsx
-import { ComponentPropsWithoutRef } from 'react';
-import { cn } from '../utils';
+import { ComponentPropsWithoutRef } from "react"
+import { cn } from "../utils"
 
 export type ButtonProps = {
-  theme?: 'light' | 'dark';
-} & ComponentPropsWithoutRef<'button'>;
+  theme?: "light" | "dark"
+} & ComponentPropsWithoutRef<"button">
 
 export function Button({ theme, className, children, ...props }: ButtonProps) {
   return (
     <button
       className={cn(
         className,
-        'mt-4 py-1 px-4 rounded shadow hover:scale-105',
-        theme === 'light' ? 'bg-white text-black' : 'bg-black text-white',
+        "mt-4 py-1 px-4 rounded shadow hover:scale-105",
+        theme === "light" ? "bg-white text-black" : "bg-black text-white",
       )}
-      {...props}>
+      {...props}
+    >
       {children}
     </button>
-  );
+  )
 }
 ```
 
 ## Usage
 
 ```tsx
-import { Button } from '@extension/ui';
+import { Button } from "@extension/ui"
 
 export default function ToggleButton() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<"light" | "dark">("light")
 
   const toggle = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
+    setTheme(theme === "light" ? "dark" : "light")
+  }
 
   return (
-    <Button theme={theme} onClick={toggle}>
+    <Button
+      theme={theme}
+      onClick={toggle}
+    >
       Toggle
     </Button>
-  );
+  )
 }
 ```
 
@@ -148,92 +152,92 @@ pnpm add tailwindcss-animate class-variance-authority -F ui
 This configuration file is from the manual guide. You can refer to the manual guide to modify the configuration file. ([`Configure tailwind.config.js`](https://ui.shadcn.com/docs/installation/manual))
 
 ```ts
-import deepmerge from 'deepmerge';
-import type { Config } from 'tailwindcss/types/config';
-import { fontFamily } from 'tailwindcss/defaultTheme';
-import tailwindAnimate from 'tailwindcss-animate';
+import deepmerge from "deepmerge"
+import type { Config } from "tailwindcss/types/config"
+import { fontFamily } from "tailwindcss/defaultTheme"
+import tailwindAnimate from "tailwindcss-animate"
 
 export function withUI(tailwindConfig: Config): Config {
   return deepmerge(
     shadcnConfig,
     deepmerge(tailwindConfig, {
-      content: ['./node_modules/@extension/ui/lib/**/*.{tsx,ts,js,jsx}'],
+      content: ["./node_modules/@extension/ui/lib/**/*.{tsx,ts,js,jsx}"],
     }),
-  );
+  )
 }
 
 const shadcnConfig = {
-  darkMode: ['class'],
+  darkMode: ["class"],
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: "2rem",
       screens: {
-        '2xl': '1400px',
+        "2xl": "1400px",
       },
     },
     extend: {
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
       },
       borderRadius: {
         lg: `var(--radius)`,
         md: `calc(var(--radius) - 2px)`,
-        sm: 'calc(var(--radius) - 4px)',
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
   plugins: [tailwindAnimate],
-};
+}
 ```
 
 4. Edit `global.css` in `lib` folder
@@ -320,8 +324,8 @@ This configuration also comes from the manual guide. You can refer to the manual
   body {
     @apply bg-background text-foreground;
     font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
+      "rlig" 1,
+      "calt" 1;
   }
 }
 ```
@@ -343,12 +347,12 @@ Remember to adjust any paths or package names if your project structure differs 
 Make the `index.ts` file in the `components/ui` directory export the button component:
 
 ```ts
-export * from './button';
+export * from "./button"
 ```
 
 Edit the `index.ts` file in the `packages/ui` directory to export the shadcn ui component:
 
 ```ts
 // export * from './lib/components'; // remove this line: duplicated button component
-export * from './lib/components/ui';
+export * from "./lib/components/ui"
 ```

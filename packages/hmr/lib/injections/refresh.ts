@@ -1,7 +1,7 @@
-import initClient from '../initializers/initClient';
+import initClient from "../initializers/initClient"
 
 function addRefresh() {
-  let pendingReload = false;
+  let pendingReload = false
 
   initClient({
     // @ts-expect-error That's because of the dynamic code loading
@@ -9,27 +9,27 @@ function addRefresh() {
     onUpdate: () => {
       // disable reload when tab is hidden
       if (document.hidden) {
-        pendingReload = true;
-        return;
+        pendingReload = true
+        return
       }
-      reload();
+      reload()
     },
-  });
+  })
 
   // reload
   function reload(): void {
-    pendingReload = false;
-    window.location.reload();
+    pendingReload = false
+    window.location.reload()
   }
 
   // reload when tab is visible
   function reloadWhenTabIsVisible(): void {
     if (!document.hidden && pendingReload) {
-      reload();
+      reload()
     }
   }
 
-  document.addEventListener('visibilitychange', reloadWhenTabIsVisible);
+  document.addEventListener("visibilitychange", reloadWhenTabIsVisible)
 }
 
-addRefresh();
+addRefresh()

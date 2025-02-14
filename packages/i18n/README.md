@@ -48,7 +48,7 @@ You can manage translations in the `locales` directory.
 
 ## Delete or Add a new language
 
-When you want to delete or add a new language, you don't need to edit some util files like `lib/types.ts` or `lib/getMessageFromLocale.ts`. 
+When you want to delete or add a new language, you don't need to edit some util files like `lib/types.ts` or `lib/getMessageFromLocale.ts`.
 That's because we provide a script to generate util files automatically by the `generate-i18n.mjs` file.
 
 Following the steps below to delete or add a new language.
@@ -62,7 +62,7 @@ locales
 ├── en
 │   └── messages.json
 └── ko // delete this directory
-    └── messages.json 
+    └── messages.json
 ```
 
 Then run the following command. (or just run `pnpm dev` or `pnpm build` on root)
@@ -82,7 +82,7 @@ locales
 ├── ko
 │   └── messages.json
 └── ja // create this directory
-    └── messages.json // and create this file 
+    └── messages.json // and create this file
 ```
 
 Then same as above, run the following command. (or just run `pnpm dev` or `pnpm build` on root)
@@ -91,7 +91,6 @@ Then same as above, run the following command. (or just run `pnpm dev` or `pnpm 
 pnpm genenrate-i8n
 ```
 
-
 ## Usage
 
 ### Translation function
@@ -99,9 +98,9 @@ pnpm genenrate-i8n
 Just import the `t` function and use it to translate the key.
 
 ```typescript
-import { t } from '@extension/i18n';
+import { t } from "@extension/i18n"
 
-console.log(t('loading')); // Loading...
+console.log(t("loading")) // Loading...
 ```
 
 ```typescript jsx
@@ -169,14 +168,14 @@ If you want to replace the placeholder, you can pass the value as the second arg
 Function `t` has exactly the same interface as the `chrome.i18n.getMessage` function.
 
 ```typescript
-import { t } from '@extension/i18n';
+import { t } from "@extension/i18n"
 
-console.log(t('greeting', 'John Doe')); // Hello, My name is John Doe
-console.log(t('greeting', ['John Doe'])); // Hello, My name is John Doe
+console.log(t("greeting", "John Doe")) // Hello, My name is John Doe
+console.log(t("greeting", ["John Doe"])) // Hello, My name is John Doe
 
-console.log(t('hello')); // Hello
-console.log(t('hello', 'World')); // Hello World
-console.log(t('hello', ['World'])); // Hello World
+console.log(t("hello")) // Hello
+console.log(t("hello", "World")) // Hello World
+console.log(t("hello", ["World"])) // Hello World
 ```
 
 ### Locale setting on development
@@ -184,11 +183,11 @@ console.log(t('hello', ['World'])); // Hello World
 If you want to show specific language, you can set the `devLocale` property. (only for development)
 
 ```typescript
-import { t } from '@extension/i18n';
+import { t } from "@extension/i18n"
 
-t.devLocale = "ko";
+t.devLocale = "ko"
 
-console.log(t('hello')); // 안녕
+console.log(t("hello")) // 안녕
 ```
 
 ### Type Safety
@@ -216,8 +215,8 @@ When you forget to add a key to all language's `messages.json` files, you will g
 ```
 
 ```typescript
-import { t } from '@extension/i18n';
+import { t } from "@extension/i18n"
 
 // Error: TS2345: Argument of type "hello" is not assignable to parameter of type
-console.log(t('hello'));
+console.log(t("hello"))
 ```
